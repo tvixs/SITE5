@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online clothing store | SHOP-_-36</title>
+  <meta name="description" content="Unisex clothing from Europe: stylish t-shirts, dresses, and more. Fast shipping to Poland, Romania, Hungary, and Greece. #unisex #fashion #clothing #europeanfashion #tshirts #dresses #shipping" />
+ <!-- Добавляем описание -->
+  <link rel="icon" href="static/images/1-9cbbb33c.ico" type="image/ico" />
+
+  <!-- Подключение шрифта Bebas Neue -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+
+<style>
+body {
+  font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    padding: 0;
+    background: white;
+    color: black;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+
+
+  .menu-icon {
+    font-size: 35px;
+    cursor: pointer;
+    margin-left: 15px;
+  }
+
+  .nav-center {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 200px;
+    font-style: italic;
+    font-size: 45px;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .nav-center a,
+  .nav-center .shop-name {
+    color: black;
+    text-decoration: none;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  main {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 35px;
+    max-width: 1600px;
+    width: 100%;
+  }
+
+  .product {
+    border: 2px solid black;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-family: inherit;
+    transition: transform 0.2s ease;
+  }
+
+  .product:hover {
+    transform: scale(1.05);
+    border-color: #555;
+  }
+
+  .product img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .product p {
+    font-style: italic;
+    margin: 0;
+    font-size: 18px;
+  }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 40vw;            /* 🔽 уменьшили до 40% ширины экрана */
+  max-width: 180px;       /* 🔽 ограничили максимум до 180px */
+  height: 100%;
+  background: white;
+  border-right: 2px solid black;
+  padding: 20px;
+  transition: left 0.8s ease;
+  z-index: 1001;
+}
+  .sidebar.active {
+    left: 0;
+  }
+
+  .close-btn {
+    font-size: 28px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 60px;
+  }
+
+  .sidebar li {
+    margin-bottom: 20px;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+
+  .nav-text {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-text:hover {
+    transform: translateY(-8px) scale(1.1);
+  }
+
+  /* 🔥 Адаптив: */
+  @media (max-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nav-center {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      font-size: 26px;
+    }
+
+    .menu-icon {
+      position: fixed; /* чтобы не двигалась с контентом */
+      top: 15px;
+      left: 15px;
+      z-index: 999; /* меньше, чем у шторки */
+      background: white; /* на всякий случай */
+      padding: 5px;
+      border-radius: 4px;
+      transition: transform 0.8s ease;
+    }
+    .menu-icon:hover {
+      transform: scale(1.3);
+    }
+
+    .menu-icon.active {
+      display: none;
+    }
+
+
+    .shop-name {
+      font-size: 28px;
+    }
+
+    main {
+      padding: 20px 10px;
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr); /* ✅ ДВА товара в РЯД */
+      gap: 20px;
+    }
+
+    .product p {
+      font-size: 14px;
+    }
+
+   .sidebar {
+      width: 60vw;           /* ✅ уже, чем на весь экран */
+      max-width: 320px;      /* ✅ ограничим */
+   }
+
+  @media (max-width: 480px) {
+    .nav-center {
+      font-size: 20px;
+    }
+
+    .shop-name {
+      font-size: 24px;
+    }
+
+    .product {
+      padding: 10px;
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr); /* ✅ Сохраняем 2 в ряд и на маленьких */
+      gap: 15px;
+    }
+
+    .product p {
+      font-size: 13px;
+    }
+
+</style>
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu-icon">✠</div>
+
+    <style>
+
+    .menu-icon {
+      font-size: 35px;
+      cursor: pointer;
+      margin-left: 15px;
+      transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.3);
+}
+
+
+ </style>
+    <div class="nav-center">
+      <a href="#" class="nav-text">NEW</a>
+       <a href="https://www.vinted.ro/member/227684154" class="shop-name nav-text">✠SHOP-_-36✠</a>
+       <a href="#" class="nav-text">BRANDS</a>
+    </div>
+  </header>
+
+  <!-- ВЫЕЗЖАЮЩЕЕ МЕНЮ -->
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="closeSidebar()">✖</div>
+    <ul>
+      <li><a href="#">HOME</a></li>
+
+     <div>
+      <label for="Size-filter" style="font-size: 18px; display: block; margin-bottom: 5px;">SIZE:</label>
+      <select id="size-filter" style="padding: 5px 10px; width: 100%; font-size: 16px;">
+    <option value="all">All Sizes</option>
+        <option value="one size">One Size</option>
+    <option value="xs">XS</option>
+    <option value="s">S</option>
+    <option value="m">M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+    <option value="xxl">XXL</option>
+    <option value="40">40</option>
+    <option value="40.5">40.5</option>
+    <option value="41">41</option>
+    <option value="41.5">41.5</option>
+    <option value="42">42</option>
+    <option value="42.5">42.5</option>
+    <option value="43">43</option>
+    <option value="43.5">43.5</option>
+    <option value="44">44</option>
+    <option value="44.5">44.5</option>
+  </select>
+</div>
+
+
+    <!-- 🔽 ФИЛЬТР ПО БРЕНДАМ -->
+    <li>
+      <label for="brand-filter" style="font-size: 18px; display: block; margin-bottom: 5px;">BRANDS:</label>
+      <select id="brand-filter" style="padding: 5px 10px; width: 100%; font-size: 16px;">
+        <option value="all">All</option>
+        <option value="balenciaga">Balenciaga</option>
+        <option value="puma">Puma</option>
+        <option value="burberry">Burberry</option>
+        <option value="dolce & gabbana">Dolce & Gabbana</option>
+        <option value="diesel">Diesel</option>
+        <option value="dsquared2">Dsquared2</option>
+        <option value="karl lagerfeld">Karl Lagerfeld</option>
+        <option value="philipp plein">Philipp Plein</option>
+        <option value="weekday">Weekday</option>
+         <option value="west coast choppers">West Coast Choppers</option>
+        <option value="oakley">Oakley</option>
+        <option value="adidas">Adidas</option>
+        <option value="nike">Nike</option>
+        <option value="fila">Fila</option>
+        <option value="ben sherman">Ben Sherman</option>
+        <option value="fred perry">Fred Perry</option>
+        <option value="ferrari">Ferrari</option>
+        <option value="alpha industries">Alpha Industries</option>
+        <option value="lyle & scott">Lyle & Scott</option>
+        <option value="lacoste">Lacoste</option>
+        <option value="philipp plein">Philipp Plein</option>
+        <option value="gant">Gant</option>
+         <option value="polo ralph lauren">Polo Ralph Lauren</option>
+        <option value="paul & shark">Paul & Shark</option>
+        <option value="abercrombie & fitch">Abercrombie & Fitch</option>
+        <option value="g-star raw">G-Star Raw</option>
+        <option value="dickies">Dickies</option>
+        <option value="calvin klein">Calvin Klein</option>
+        <option value="2005">2005</option>
+        <option value="yourturn">YourTurn</option>
+      </select>
+    </li>
+      <li><a href="#">NEW</a></li>
+      <li><a href="https://www.vinted.ro/member/227684154?tab=feedback" target="_blank">REVIEWS</a></li>
+      <li><a href="/about">ABOUT US</a></li>
+    </ul>
+  </div>
+<main>
+  <div class="product-grid">
+    <a href="https://www.vinted.ro/items/6534143702-balenciaga-multimaterial-neoprene-high" class="product" target="_blank" data-brand="balenciaga" data-size="42" rel="noopener noreferrer">
+      <img src="static/images/1751114560.jpeg" alt="Balenciaga Multimaterial Neoprene High" />
+      <p>Balenciaga Multimaterial Neoprene High</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6612817313-puma-x-pokemon-slipstream" class="product" target="_blank" data-brand="puma" data-size="42.5" rel="noopener noreferrer">
+      <img src="static/images/1751475068.jpeg" alt="Puma X Pokemon Slipstream" />
+      <p>Puma X Pokemon Slipstream</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6403209085-original-burberry-brit-polo" class="product" target="_blank" data-brand="burberry" data-size="l" rel="noopener noreferrer">
+      <img src="static/images/1750232968.jpeg" alt="Burberry Brit polo" />
+      <p>Burberry Brit Polo</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6558457997-vintage-sweater-dolce-gabbana" class="product" target="_blank" data-brand="dolce & gabbana" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1750610250.jpeg" alt="sweater dolce & gabbana" />
+      <p>Sweater dolce & gabbana</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6599397958-oversized-t-shirt-2005" class="product" target="_blank" data-brand="2005" data-size="l" rel="noopener noreferrer">
+      <img src="static/images/1751271493.jpeg" alt="T-shirt 2005" />
+      <p>T-shirt 2005</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6558286752-diesel-t-shirt" class="product" target="_blank" data-brand="diesel" data-size="s" rel="noopener noreferrer">
+      <img src="static/images/1750609053.jpeg" alt="Diesel t-shirt" />
+      <p>Diesel t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6558319004-diesel-t-shirt" class="product" target="_blank" data-brand="diesel" data-size="m"  rel="noopener noreferrer">
+      <img src="static/images/1750609278.jpeg" alt="Diesel t-shirt" />
+      <p>Diesel t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6708418513-t-shirt-dsquared2" class="product" target="_blank" data-brand="dsquared2" data-size="m"  rel="noopener noreferrer">
+      <img src="static/images/1752905143.jpeg" alt="T-shirt Dsquared2" />
+      <p>T-shirt Dsquared2</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6703379742-t-shirt-karl-lagerfeld" class="product" target="_blank" data-brand="karl lagerfeld" data-size="xl"  rel="noopener noreferrer">
+      <img src="static/images/1752819786.jpeg" alt="T-shirt Karl Lagerfeld" />
+      <p>T-shirt Karl Lagerfeld</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6708424294-t-shirt-philipp-plein" class="product" target="_blank" data-brand="philipp plein" data-size="xl" rel="noopener noreferrer">
+      <img src="static/images/1752905369.jpeg" alt="T-shirt Philipp Plein" />
+      <p>T-shirt Philipp Plein</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6708406551-weekday-t-shirt" class="product" target="_blank" data-brand="weekday" data-size="xl" rel="noopener noreferrer">
+      <img src="static/images/1752904639.jpeg" alt="Weekday T-shirt" />
+      <p>Weekday T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6746203574-adidas-forum-high-x-kerwin-frost" class="product" target="_blank" data-brand="adidas" data-size="42.5" rel="noopener noreferrer">
+      <img src="static/images/1753430742.jpeg" alt="Adidas Forum High X Kerwin Frost" />
+      <p>Adidas Forum High X Kerwin Frost</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6746214383-oakley-t-shirt-polo" class="product" target="_blank" data-brand="oakley" data-size="l" rel="noopener noreferrer">
+      <img src="static/images/1753430893.jpeg" alt="Oakley T-shirt polo" />
+      <p>Oakley T-shirt polo</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6713761880-west-coast-choppers-sneakers" class="product" target="_blank" data-brand="west coast choppers" data-size="43" rel="noopener noreferrer">
+      <img src="static/images/1752960820.jpeg" alt="West Coast Choppers sneakers" />
+      <p>West Coast Choppers sneakers</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6716365856-nike-t-shirt" class="product" target="_blank" data-brand="nike" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1753013397.jpeg" alt="Nike T-shirt" />
+      <p>Nike T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6716336925-vintage-fila-t-shirt" class="product" target="_blank" data-brand="fila" data-size="xl" rel="noopener noreferrer">
+      <img src="static/images/1753013204.jpeg" alt="Vintage Fila T-shirt" />
+      <p>Vintage Fila T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6713793757-adidas-real-madrid-world-champions-2017t-shirt" class="product" target="_blank" data-brand="adidas" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1752961647.jpeg" alt="Adidas Real Madrid (World Champions 2017)T-shirt" />
+      <p>Adidas Real Madrid (World Champions 2017)T-shirt</p>
+    </a>
+        <a href="https://www.vinted.ro/items/6713812347-vintage-adidas-fifa-world-cup-brasil-t-shirt" class="product" target="_blank" data-brand="adidas" data-size="s"  rel="noopener noreferrer">
+      <img src="static/images/1752962184.jpeg" alt="Vintage Adidas FIFA World Cup Brasil T-shirt" />
+      <p>Vintage Adidas FIFA World Cup Brasil T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6713772927-oakley-polo-t-shirt" class="product" target="_blank" data-brand="oakley" data-size="l"  rel="noopener noreferrer">
+      <img src="static/images/1752819786.jpeg" alt="Oakley polo t-shirt" />
+      <p>Oakley polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6703361925-ben-sherman-x-the-beatles-t-shirt" class="product" target="_blank" data-brand="ben sherman" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1752819240.jpeg" alt="Ben Sherman x The Beatles t-shirt" />
+      <p>Ben Sherman x The Beatles t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6703335028-fred-perry-t-shirt-polo" class="product" target="_blank" data-brand="fred perry" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1752818320.jpeg" alt="Fred Perry t-shirt Polo" />
+      <p>Fred Perry t-shirt Polo</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6696341572-ferrari-t-shirt" class="product" target="_blank" data-brand="ferrari" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1752690380.jpeg" alt="Ferrari T-shirt" />
+      <p>Ferrari T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6696276434-vintage-alpha-industries-t-shirt" class="product" target="_blank" data-brand="alpha industries" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1752689796.jpeg" alt="Vintage Alpha industries t-shirt" />
+      <p>Vintage Alpha industries t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6694469057-lyle-scott-polo-t-shirt" class="product" target="_blank" data-brand="lyle & scott" data-size="l" rel="noopener noreferrer">
+      <img src="static/images/1752674798.jpeg" alt="Lyle & Scott polo t-shirt" />
+      <p>Lyle & Scott polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6691959824-lacoste-polo-t-shirt" class="product" target="_blank" data-brand="lacoste" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1752652232.jpeg" alt="Lacoste polo t-shirt" />
+      <p>Lacoste polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6611539741-polo-t-shirt-gant" class="product" target="_blank" data-brand="gant" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1751463462.jpeg" alt="Polo t-shirt Gant" />
+      <p>Polo t-shirt Gant</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6611461651-polo-ralph-lauren-polo-t-shirt" class="product" target="_blank" data-brand="polo ralph lauren" data-size="xl" rel="noopener noreferrer">
+      <img src="static/images/1751462724.jpeg" alt="Polo Ralph Lauren polo t-shirt" />
+      <p>Polo Ralph Lauren polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6611432788-lyle-scott-polo-t-shirt" class="product" target="_blank" data-brand="lyle & scott" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1751462453.jpeg" alt="Lyle & Scott polo t-shirt" />
+      <p>Lyle & Scott polo t-shirt</p>
+      </a>
+     <a href="https://www.vinted.ro/items/6610577317-paul-shark-t-shirt" class="product" target="_blank" data-brand="paul & shark" data-size="l" rel="noopener noreferrer">
+      <img src="static/images/1751454211.jpeg" alt="Paul & Shark t-shirt" />
+      <p>Paul & Shark t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6610451682-lyle-scott-t-shirt" class="product" target="_blank" data-brand="lyle & scott" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1751452939.jpeg" alt="Lyle & Scott t-shirt" />
+      <p>Lyle & Scott t-shirt</p>
+    </a>
+        <a href="https://www.vinted.ro/items/6610419161-lyle-scott-polo-t-shirt" class="product" target="_blank" data-brand="lyle & scott" data-size="s"  rel="noopener noreferrer">
+      <img src="static/images/1751452600.jpeg" alt="Lyle & Scott polo t-shirt" />
+      <p>Lyle & Scott polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6599449705-polo-longsleeve-ralph-lauren" class="product" target="_blank" data-brand="polo ralph lauren" data-size="s"  rel="noopener noreferrer">
+      <img src="static/images/1751272211.jpeg" alt="Polo Ralph Lauren Long sleeve" />
+      <p>Polo Ralph Lauren Longsleeve</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6584585436-polo-ralph-lauren-t-shirt" class="product" target="_blank" data-brand="polo ralph lauren" data-size="s" rel="noopener noreferrer">
+      <img src="static/images/1751021543.jpeg" alt="Polo Ralph Lauren T-shirt" />
+      <p>Polo Ralph Lauren T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6584371129-vintage-polo-ralph-lauren-polo-t-shirt" class="product" target="_blank" data-brand="polo ralph lauren" data-size="s" rel="noopener noreferrer">
+      <img src="static/images/1751019199.jpeg" alt="Vintage Polo Ralph Lauren polo t-shirt" />
+      <p>Vintage Polo Ralph Lauren polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6584344923-abercrombie-fitch-t-shirt-polo" class="product" target="_blank" data-brand="abercrombie & fitch" data-size="s" rel="noopener noreferrer">
+      <img src="static/images/1751018913.jpeg" alt="Abercrombie & Fitch t-shirt polo" />
+      <p>Abercrombie & Fitch t-shirt polo</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6584322349-lyle-scott-t-shirt" class="product" target="_blank" data-brand="lyle & scott" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1751018671.jpeg" alt="Lyle & Scott T-shirt" />
+      <p>Lyle & Scott T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6584308502-g-star-raw-t-shirt" class="product" target="_blank" data-brand="g-star raw" data-size="xl" rel="noopener noreferrer">
+      <img src="static/images/1751018522.jpeg" alt="G-Star Raw T-shirt" />
+      <p>G-Star Raw T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6584246594-lyle-scott-polo-t-shirt" class="product" target="_blank" data-brand="lyle & scott" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1751017850.jpeg" alt="Lyle & Scott polo t-shirt" />
+      <p>Lyle & Scott polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6584230813-lyle-scott-polo-t-shirt" class="product" target="_blank" data-brand="lyle & scott" data-size="l" rel="noopener noreferrer">
+      <img src="static/images/1751017680.jpeg" alt="Lyle & Scott polo t-shirt" />
+      <p>Lyle & Scott polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6584115992-new-dickies-shirt" class="product" target="_blank" data-brand="dickies" data-size="xl" rel="noopener noreferrer">
+      <img src="static/images/1751016455.jpeg" alt="Dickies T-shirt" />
+      <p>Dickies T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6570649674-polo-ralph-lauren-t-shirt" class="product" target="_blank" data-brand="polo ralph lauren" data-size="xs" rel="noopener noreferrer">
+      <img src="static/images/1750785538.jpeg" alt="Polo Ralph Lauren t-shirt" />
+      <p>Polo Ralph Lauren t-shirt</p>
+      </a>
+    <a href="https://www.vinted.ro/items/6570601794-lyle-scott-polo-long-sleeve" class="product" target="_blank" data-brand="lyle & scott polo " data-size="s"  rel="noopener noreferrer">
+      <img src="static/images/1750785126.jpeg" alt="Lyle & Scott polo Long sleeve" />
+      <p>Lyle & Scott polo Longsleeve</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6570546709-polo-ralph-lauren-t-shirt" class="product" target="_blank" data-brand="polo ralph lauren" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1750784647.jpeg" alt="Polo Ralph Lauren T-shirt" />
+      <p>Polo Ralph Lauren T-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6570514757-polo-t-shirt-gant" class="product" target="_blank" data-brand="gant" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1750784374.jpeg" alt="Polo t-shirt Gant" />
+      <p>Polo t-shirt Gant</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6565251018-calvin-klein-jeans-sweater" class="product" target="_blank" data-brand="calvin klein" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1750703774.jpeg" alt="Calvin Klein Jeans sweater" />
+      <p>Calvin Klein Jeans sweater</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6563490833-abercrombie-fitch-longsleeve" class="product" target="_blank" data-brand="abercrombie & fitch" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1750689159.jpeg" alt="Abercrombie & Fitch long sleeve" />
+      <p>Abercrombie & Fitch long sleeve</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6565191375-house-x-2005" class="product" target="_blank" data-brand="2005" data-size="l" rel="noopener noreferrer">
+      <img src="static/images/1750703264.jpeg" alt="Sweatshirt house x 2005" />
+      <p>Sweatshirt house x 2005</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6558344399-diesel-t-shirt" class="product" target="_blank" data-brand="diesel" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1750609455.jpeg" alt="Diesel t-shirt" />
+      <p>Diesel t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6558578399-calvin-klein-belt" class="product" target="_blank" data-brand="calvin klein" data-size="one size" rel="noopener noreferrer">
+      <img src="static/images/1750611100.jpeg" alt="Calvin Klein belt" />
+      <p>Calvin Klein belt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6713772927-oakley-polo-t-shirt" class="product" target="_blank" data-brand="oakley" data-size="l" rel="noopener noreferrer">
+      <img src="static/images/1752961094 .jpeg" alt="Oakley polo t-shirt" />
+      <p>Oakley polo t-shirt</p>
+    </a>
+    <a href="https://www.vinted.ro/items/6716452040-diesel-t-shirt" class="product" target="_blank" data-brand="diesel" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1753175698.jpeg" alt="Diesel T-shirt" />
+      <p>Diesel T-shirt</p>
+      </a>
+    <a href="https://www.vinted.ro/items/6584381569-yourturn-t-shirt" class="product" target="_blank" data-brand="yourturn" data-size="m" rel="noopener noreferrer">
+      <img src="static/images/1751019317.jpeg" alt="YourTurn t-shirt" />
+      <p>YourTurn t-shirt</p>
+      </a>
+  </div>
+</main>
+
+  <!-- JS -->
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const menuIcon = document.querySelector('.menu-icon');
+
+    menuIcon.addEventListener('click', () => {
+      sidebar.classList.add('active');
+    });
+
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+    }
+
+    document.addEventListener('click', function (event) {
+      if (!sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
+        sidebar.classList.remove('active');
+      }
+    });
+    const brandFilter = document.getElementById('brand-filter');
+const sizeFilter = document.getElementById('size-filter');
+const products = document.querySelectorAll('.product');
+
+function filterProducts() {
+  const brandValue = brandFilter.value;
+  const sizeValue = sizeFilter.value;
+
+  products.forEach(product => {
+    const productBrand = product.getAttribute('data-brand');
+    const productSize = product.getAttribute('data-size');
+
+    const brandMatch = (brandValue === 'all') || (productBrand === brandValue);
+    const sizeMatch = (sizeValue === 'all') || (productSize === sizeValue);
+
+    if (brandMatch && sizeMatch) {
+      product.style.display = '';
+    } else {
+      product.style.display = 'none';
+    }
+  });
+}
+
+brandFilter.addEventListener('change', filterProducts);
+sizeFilter.addEventListener('change', filterProducts);
+
+
+  </script>
+</body>
+</html>
